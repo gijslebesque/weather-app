@@ -1,0 +1,30 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "App that checks weather reports",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gijslebesque/weather-app.git"
+  },
+  "keywords": [
+    "Piet",
+    "Paulusma"
+  ],
+  "author": "Antony, Douwe, Gijs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gijslebesque/weather-app/issues"
+  },
+  "homepage": "https://github.com/gijslebesque/weather-app#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "pg": "^6.1.0",
+    "pug": "^2.0.0-beta6",
+    "scraperjs": "^1.2.0",
+    "sequelize": "^3.27.0"
+  }
+}
