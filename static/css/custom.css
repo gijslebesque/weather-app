@@ -1,0 +1,33 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	font-family: 'Francois One', sans-serif;
+
+}
+
+main {
+	flex: 1 0 auto;
+	color: #ce160a;
+	text-align: center;
+	background-color:  #e6e6e6;
+}
+
+nav {
+	background-color: #ce160a ;
+
+}
+
+footer.page-footer {
+	background-color: #ce160a ;
+	color: white ;
+}
+
+
+nav .brand-logo {
+	color: white;
+}
+
+footer.page-footer {
+	margin-top: 0px;
+}
