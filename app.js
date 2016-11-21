@@ -4,7 +4,7 @@ const dotenv	= require('dotenv').load()
 const app 		= express()
 
 // Require our modules
-// const scraper 	= require(__dirname + '/modules/scraper')
+const scraper 	= require(__dirname + '/modules/scraper')
 
 // Set view engine to pug
 app.set('view engine', 'pug')

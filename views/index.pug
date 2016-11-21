@@ -5,6 +5,8 @@ html
 		link(href='https://fonts.googleapis.com/css?family=Francois+One', rel='stylesheet')
 
 	body
+		div
+		//- Hier maak ik de navbar
 		nav
 			.nav-wrapper
 				a.brand-logo.left(href='/') Had 'ie gelijk?!
@@ -13,24 +15,36 @@ html
 						a(href='/') PIETJE
 					li
 						
-		main.flow-text.center
+		main.flow-text.center#mainid
 			div.row
 				div.s12.l12.m12
 					h1 Jeetje wat spannend
-			.row.center
+			//- hier weergeef ik het resultaat (werkt nog niet)
+			//- if (false)		
+				.row.center
+					.col.s12.m6.offset-m3
+						.card
+							.card-image
+								img(src='images/fout.png')
+								span.card-title 
+							.card-content
+								p NEE! WEER MIS
+								p Gister voorspelde piet x en y maar het is z en k geworden
+			//- else (true) 
+				.row.center
 				.col.s12.m6.offset-m3
 					.card
 						.card-image
-							img(src='images/fout.png')
+							img(src='images/goed.png')
 							span.card-title 
 						.card-content
-							p NEE! WEER MIS
-							p Gister voorspelde hij x en y maar het is z en k
+							p JAA! HET KLOPT
+							p Gister voorspelde hij x en y en het is ook waar!
 							
 						
 
 		
-	
+		//- hier maak ik de footer
 		footer.page-footer
 			.container
 				.row
