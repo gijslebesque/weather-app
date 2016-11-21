@@ -16,13 +16,13 @@ app.use(express.static(__dirname+'/static'))
 
 // Index route
 app.get('/', (req, res) => {
+	
 	res.render('index')
-
 })
 
 // Set timeout so server can start up first
 setTimeout( () => {
-	scraper.scrape()
+	scraper.scrape('tommorow')
 }, 3000 )
 
 // app listens on localhost 8000
