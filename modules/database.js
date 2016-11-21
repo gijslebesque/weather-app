@@ -13,10 +13,15 @@ db.Weather = db.conn.define('weather', {
 	forecast_temp_night: 		sequelize.INTEGER,
 	forecast_icon_name: 		sequelize.STRING,
 	forecast_wind_direction: 	sequelize.STRING,
-	forecast_wind_speed: 		sequelize.STRING
+	forecast_wind_speed: 		sequelize.STRING,
+	current_temp_day: 			sequelize.INTEGER,
+	current_temp_night: 		sequelize.INTEGER,
+	current_icon_name: 			sequelize.STRING,
+	current_wind_direction: 	sequelize.STRING,
+	current_wind_speed: 		sequelize.STRING
 })
 
-db.conn.sync( {force: true} ).then( ()=>{
+db.conn.sync().then( ()=>{
 	console.log('Database sync successful')
 }, (err) => {
 	console.log('Database sync failed: ' + err)

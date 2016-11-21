@@ -2,7 +2,8 @@
 const scraperjs = require('scraperjs')
 const db 		= require(__dirname + '/database')
 
-function scrape() {
+// Function to scrape the weather data for today and tommorow
+function scrape(day) {
 	// Initiate scraper
 	scraperjs.StaticScraper
 		// Set website to be scraped
@@ -14,12 +15,14 @@ function scrape() {
 		})
 		// Do something with the scraped content
 		.then((content) =>{
-			// Create an object to store the data
-			let weatherData = {}
+			// Create an array to store the data
+			let data = []
 			// Content is an array so loop over the found elements
 			for (let i = 0; i < content.length; i++) {
-				// Find the part of the site that contains tomorrow forecast
-				if (content[i].attribs.href === '#/eu/nl/1/day/') {
+				// Find the part of the site that contains the data for today OR tommorow
+				if (content[i].attribs.href === '#/eu/nl/1/day/' || content[i].attribs.href === '#/eu/nl/0/') {
+					// Create an object to store the data for one day
+					let weatherData = {}
 					// Loop over the elements within this part
 					for (let j = 0; j < content[i].children.length; j++) {
 						let data = content[i].children[j]
@@ -49,12 +52,15 @@ function scrape() {
 							}
 						}
 					}
+					data.push(weatherData)
 				}
 			}
-			storeData(weatherData)
-	})
+			// Call the function to store all data into the database
+			storeData(data)
+		})
 }
 
+// Store given data into database
 function storeData(data) {
 	// Get the current date and format it into dd-mm-yyyy
 	let currentDate = dateFormat(new Date())
@@ -62,12 +68,18 @@ function storeData(data) {
 	// Store data into database
 	db.Weather.create({
 		forecast_date:				currentDate,
-		forecast_temp_day: 			data.tempDay,
-		forecast_temp_night: 		data.tempNight,
-		forecast_icon_name: 		data.iconName,
-		forecast_wind_direction: 	data.windDirection,
-		forecast_wind_speed: 		data.windSpeed
+		forecast_temp_day: 			data[1].tempDay,
+		forecast_temp_night: 		data[1].tempNight,
+		forecast_icon_name: 		data[1].iconName,
+		forecast_wind_direction: 	data[1].windDirection,
+		forecast_wind_speed: 		data[1].windSpeed,
+		current_temp_day: 			data[0].tempDay,
+		current_temp_night: 		data[0].tempNight,
+		current_icon_name: 			data[0].iconName,
+		current_wind_direction: 	data[0].windDirection,
+		current_wind_speed: 		data[0].windSpeed
 	})
+
 	console.log('scraper done')
 }
 
