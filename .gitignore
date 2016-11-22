@@ -38,3 +38,9 @@ jspm_packages
 
 # Environment variables
 .env
+
+#Apple dingetje
+.DS_Store
+
+#Sass dingen
+.sass-cache/
