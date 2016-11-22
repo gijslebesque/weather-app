@@ -19,9 +19,8 @@ html
 			div.row
 				div.s12.l12.m12
 					h1 Jeetje wat spannend
-			//- hier weergeef ik het resultaat (werkt nog niet)
-			//- if (false)		
-				.row.center
+
+				.row.center#badprediction
 					.col.s12.m6.offset-m3
 						.card
 							.card-image
@@ -30,16 +29,16 @@ html
 							.card-content
 								p NEE! WEER MIS
 								p Gister voorspelde piet x en y maar het is z en k geworden
-			//- else (true) 
-				.row.center
-				.col.s12.m6.offset-m3
-					.card
-						.card-image
-							img(src='images/goed.png')
-							span.card-title 
-						.card-content
-							p JAA! HET KLOPT
-							p Gister voorspelde hij x en y en het is ook waar!
+				
+				//- .row.center#goodprediction
+				//- 	.col.s12.m6.offset-m3
+				//- 		.card
+				//- 			.card-image
+				//- 				img(src='images/goed.jpg')
+				//- 				span.card-title 
+				//- 			.card-content
+				//- 				p JAA! HET KLOPT
+				//- 				p Gister voorspelde hij x en y en het is ook waar!
 							
 						
 
@@ -61,3 +60,4 @@ html
 		
 	script(src='js/jquery-3.1.1.min.js')
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js')
+	script(src='js/custom.js')
