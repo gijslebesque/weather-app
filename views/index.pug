@@ -18,7 +18,9 @@ html
 		main.flow-text.center#mainid
 			div.row
 				div.s12.l12.m12
-					h1 Jeetje wat spannend
+					div.loader
+						h1 Jeetje wat spannend
+						img(src='images/loading-white.gif')
 
 				if score === 4
 					.row.center#prediction
@@ -29,8 +31,11 @@ html
 									span.card-title 
 								.card-content
 									p JAA! HET KLOPT
+
 									p Gister voorspelde Piet alles goed!
 									
+
+
 
 				if score === 3
 					.row.center#prediction
@@ -40,6 +45,7 @@ html
 									img(src='images/piet1.jpg')
 									span.card-title 
 								.card-content
+
 									p NOU.. OP HET RANDJE!
 									p Gister voorspelde Piet:
 									if result.compare_temp_day === false
@@ -51,6 +57,7 @@ html
 									if result.compare_wind_speed === false
 										p Én de windsnelheid fout.
 
+
 				if score === 2
 					.row.center#prediction
 						.col.s12.m6.offset-m3
@@ -59,6 +66,7 @@ html
 									img(src='images/piet2.jpg')
 									span.card-title 
 								.card-content
+
 									p 50/50, DIT IS GEWOON SLECHT
 									p Gister voorspelde Piet:
 									if result.compare_temp_day === false
@@ -69,6 +77,7 @@ html
 										p Én de windrichting fout.
 									if result.compare_wind_speed === false
 										p Én de windsnelheid fout.
+
 
 				if score === 1
 					.row.center#prediction

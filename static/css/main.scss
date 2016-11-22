@@ -16,7 +16,9 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	
 }
+
 
 nav {
 	background-color: $maincolor;
@@ -24,6 +26,7 @@ nav {
 		color: $textcolorHeaderFooter;
 	}
 }
+
 
 footer.page-footer {
 	background-color : $maincolor;
@@ -40,6 +43,7 @@ main {
 #prediction {
 	display: none;
 }
+
 
 
 
