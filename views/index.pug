@@ -12,7 +12,7 @@ html
 				a.brand-logo.left(href='/') Had 'ie gelijk?!
 				ul#nav-mobile.right
 					li
-						a(href='/') PIETJE
+						a(href='/') PRAAT MET PIET
 					li
 						
 		main.flow-text.center#mainid
@@ -25,75 +25,91 @@ html
 						.col.s12.m6.offset-m3
 							.card
 								.card-image
-									img(src='images/goed.jpg')
+									img(src='images/piet4.jpg')
 									span.card-title 
 								.card-content
 									p JAA! HET KLOPT
-									p Gister voorspelde Piet:
-									if result.compare_temp_day === true
-										p de temperatuur goed
-									else 
-										p de temperatuur fout
+									p Gister voorspelde Piet alles goed!
+									
 
 				if score === 3
 					.row.center#prediction
 						.col.s12.m6.offset-m3
 							.card
 								.card-image
-									img(src='images/goed.jpg')
+									img(src='images/piet1.jpg')
 									span.card-title 
 								.card-content
-									p NOU.. OP HET RANDJE PIET
+									p NOU.. OP HET RANDJE!
 									p Gister voorspelde Piet:
-									if result.compare_temp_day === true
-										p de temperatuur goed
-									else 
-										p de temperatuur fout
+									if result.compare_temp_day === false
+										p De temperatuur overdag fout.
+									if result.compare_temp_night === false
+										p Én de temperatuur 's nacht fout.
+									if result.compare_wind_direction === false
+										p Én de windrichting fout.
+									if result.compare_wind_speed === false
+										p Én de windsnelheid fout.
 
 				if score === 2
 					.row.center#prediction
 						.col.s12.m6.offset-m3
 							.card
 								.card-image
-									img(src='images/goed.jpg')
+									img(src='images/piet2.jpg')
 									span.card-title 
 								.card-content
-									p 50/50, BEETJE JAMMER PIET
+									p 50/50, DIT IS GEWOON SLECHT
 									p Gister voorspelde Piet:
-									if result.compare_temp_day === true
-										p de temperatuur goed
-									else 
-										p de temperatuur fout
+									if result.compare_temp_day === false
+										p De temperatuur overdag fout.
+									if result.compare_temp_night === false
+										p Én de temperatuur 's nacht fout.
+									if result.compare_wind_direction === false
+										p Én de windrichting fout.
+									if result.compare_wind_speed === false
+										p Én de windsnelheid fout.
 
 				if score === 1
 					.row.center#prediction
 						.col.s12.m6.offset-m3
 							.card
 								.card-image
-									img(src='images/goed.jpg')
+									img(src='images/piet3.jpg')
 									span.card-title 
 								.card-content
 									p DIT KAN ECHT NIET! WAT EEN GEK!
 									p Gister voorspelde Piet:
-									if result.compare_temp_day === true
-										p de temperatuur goed
-									else 
-										p de temperatuur fout
+									if result.compare_temp_day === false
+										p De temperatuur overdag fout.
+									if result.compare_temp_night === false
+										p Én de temperatuur 's nacht fout.
+									if result.compare_wind_direction === false
+										p Én de windrichting fout.
+									if result.compare_wind_speed === false
+										p Én de windsnelheid fout.
+									 
+
 
 				if score === 0
 					.row.center#prediction
 						.col.s12.m6.offset-m3
 							.card
 								.card-image
-									img(src='images/fout.png')
+									img(src='images/piet0.png')
 									span.card-title 
 								.card-content
-									p JEZUS PIET, JE ZIT ER WEER EENS HE-LE-MAAL NAAST!!
+									p JEZUS, PIET ZIT ER HE-LE-MAAL NAAST!!
 									p Gister voorspelde Piet:
-									if result.compare_temp_day === true
-										p de temperatuur goed
-									else 
-										p de temperatuur fout
+									if result.compare_temp_day === false
+										p de temperatuur overdag fout.
+									if result.compare_temp_night === false
+										p én de temperatuur 's nacht fout.
+									if result.compare_wind_direction === false
+										p én de windrichting fout.
+									if result.compare_wind_speed === false
+										p én de windsnelheid fout.
+									
 	
 		//- hier maak ik de footer
 		footer.page-footer
