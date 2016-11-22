@@ -23,10 +23,15 @@ app.get('/', (req, res) => {
 		limit: 1,							// find only one database entry
 		order: [ ['createdAt', 'DESC'] ] 	// make sure it is the last added entry
 	}).then( (result) => {
-		console.log('Data hieronder wordt naar front end gestuurd.')
-		console.log(result.dataValues)
+		let score = 0
+		let object = result[0].dataValues
+		for (let property in object) {
+			if (object[property] === true) {
+				score += 1
+			}
+		}
 		// Render index with these result
-		res.render('index', {result: result.dataValues})
+		res.render('index', {score: score, result: result})
 	})
 })
 

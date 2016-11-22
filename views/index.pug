@@ -20,29 +20,81 @@ html
 				div.s12.l12.m12
 					h1 Jeetje wat spannend
 
-				.row.center#badprediction
-					.col.s12.m6.offset-m3
-						.card
-							.card-image
-								img(src='images/fout.png')
-								span.card-title 
-							.card-content
-								p NEE! WEER MIS
-								p Gister voorspelde piet x en y maar het is z en k geworden
-				
-				//- .row.center#goodprediction
-				//- 	.col.s12.m6.offset-m3
-				//- 		.card
-				//- 			.card-image
-				//- 				img(src='images/goed.jpg')
-				//- 				span.card-title 
-				//- 			.card-content
-				//- 				p JAA! HET KLOPT
-				//- 				p Gister voorspelde hij x en y en het is ook waar!
-							
-						
+				if score === 4
+					.row.center#prediction
+						.col.s12.m6.offset-m3
+							.card
+								.card-image
+									img(src='images/goed.jpg')
+									span.card-title 
+								.card-content
+									p JAA! HET KLOPT
+									p Gister voorspelde Piet:
+									if result.compare_temp_day === true
+										p de temperatuur goed
+									else 
+										p de temperatuur fout
 
-		
+				if score === 3
+					.row.center#prediction
+						.col.s12.m6.offset-m3
+							.card
+								.card-image
+									img(src='images/goed.jpg')
+									span.card-title 
+								.card-content
+									p NOU.. OP HET RANDJE PIET
+									p Gister voorspelde Piet:
+									if result.compare_temp_day === true
+										p de temperatuur goed
+									else 
+										p de temperatuur fout
+
+				if score === 2
+					.row.center#prediction
+						.col.s12.m6.offset-m3
+							.card
+								.card-image
+									img(src='images/goed.jpg')
+									span.card-title 
+								.card-content
+									p 50/50, BEETJE JAMMER PIET
+									p Gister voorspelde Piet:
+									if result.compare_temp_day === true
+										p de temperatuur goed
+									else 
+										p de temperatuur fout
+
+				if score === 1
+					.row.center#prediction
+						.col.s12.m6.offset-m3
+							.card
+								.card-image
+									img(src='images/goed.jpg')
+									span.card-title 
+								.card-content
+									p DIT KAN ECHT NIET! WAT EEN GEK!
+									p Gister voorspelde Piet:
+									if result.compare_temp_day === true
+										p de temperatuur goed
+									else 
+										p de temperatuur fout
+
+				if score === 0
+					.row.center#prediction
+						.col.s12.m6.offset-m3
+							.card
+								.card-image
+									img(src='images/fout.png')
+									span.card-title 
+								.card-content
+									p JEZUS PIET, JE ZIT ER WEER EENS HE-LE-MAAL NAAST!!
+									p Gister voorspelde Piet:
+									if result.compare_temp_day === true
+										p de temperatuur goed
+									else 
+										p de temperatuur fout
+	
 		//- hier maak ik de footer
 		footer.page-footer
 			.container
