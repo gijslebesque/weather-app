@@ -1,62 +1,43 @@
-const sequelize 	= require('sequelize')
 
-let db = {}
+//require db
+const db = require(__dirname + '/database')
 
-db.conn = new sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-	server: 	process.env.DB_SERVER,
-	dialect: 	process.env.DB_DIALECT
-})
-
-db.Weather = db.conn.define('weather', {
-	forecast_date: 				sequelize.STRING,
-	forecast_temp_day: 			sequelize.INTEGER,
-	forecast_temp_night: 		sequelize.INTEGER,
-	forecast_icon_name: 		sequelize.STRING,
-	forecast_wind_direction: 	sequelize.STRING,
-	forecast_wind_speed: 		sequelize.STRING,
-	current_temp_day: 			sequelize.INTEGER,
-	current_temp_night: 		sequelize.INTEGER,
-	current_icon_name: 			sequelize.STRING,
-	current_wind_direction: 	sequelize.STRING,
-	current_wind_speed: 		sequelize.STRING
-})
-
-db.Prediction = db.conn.define('prediction', {
-	date: 						sequelize.STRING,
-	prediction_temp_day: 		sequelize.BOOLEAN,
-	prediction_temp_night: 		sequelize.BOOLEAN,
-	prediction_wind_direction: 	sequelize.BOOLEAN,
-	prediction_speed: 			sequelize.BOOLEAN
-})
-
-
+//declare function that will compare and save data in new table
 let predict = () =>{
+	//empty object for storing data
 	let resultComparisions = {}
+	//fing scraped data in tabel weather.
 	db.Weather.findAll({
+		// find function will only find the scraped data of today and yesterday
 		limit: 2,
+		// order of the array in which results will be stored
 		order: [ ['createdAt', 'DESC']]
+		//start comparing the predicted data of yesterday with weather of today
 		}).then( result => {
-			console.log(result[1].dataValues)
-			console.log(result[0].dataValues)
+			//set date of current day
 			resultComparisions.date = result[0].forecast_date
+			// compare yesterday's predicted day temperature with the actual day temperature
 		if(result[1].forecast_temp_day == result[0].current_temp_day){
 			resultComparisions.prediction_temp_day = true
 		}
 		else{
 			resultComparisions.prediction_temp_day = false
 		}
+		// compare yesterday's predicted night temperature with the actual night temperature
 		if(result[1].forecast_temp_night == result[0].current_temp_night){
 			resultComparisions.prediction_temp_night = true
 		}
 		else{
 			resultComparisions.prediction_temp_night = false
 		}
+		// compare yesterday's predicted wind direction temperature with the actual wind direction 
 		if(result[1].forecast_wind_direction == result[0].current_wind_direction){
 			resultComparisions.prediction_wind_direction = true
 		}
 		else{
 			resultComparisions.prediction_wind_direction = false
 		}
+		// compare yesterday's predicted wind speed with the actual wind speed
 		if(result[1].forecast_wind_speed == result[0].forecast_wind_speed){
 			resultComparisions.prediction_speed = true
 		}
@@ -64,8 +45,8 @@ let predict = () =>{
 			resultComparisions.prediction_speed = false
 		}
 
+		//insert data into table called prediction
 	}).then( ()=> {
-		console.log(resultComparisions)
 		db.Prediction.create({
 			date: resultComparisions.date,
 			prediction_temp_day: resultComparisions.prediction_temp_day,
@@ -75,15 +56,5 @@ let predict = () =>{
 		})
 	})
 }
-
-predict()
-
-
-db.conn.sync().then( ()=>{
-	console.log('Database sync successful')
-}, (err) => {
-	console.log('Database sync failed: ' + err)
-} )
-
-module.exports = db
-
+//export module
+module.exports = {predict: predict}
