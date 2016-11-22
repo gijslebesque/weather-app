@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Francois One", sans-serif; }
+
+#mainid {
+  background: url(/images/nlb.jpeg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+nav {
+  background-color: #ce160a; }
+  nav .brand-logo {
+    color: white; }
+
+footer.page-footer {
+  background-color: #ce160a;
+  color: white;
+  margin-top: 0px; }
+
+main {
+  flex: 1 0 auto;
+  color: #ce160a;
+  text-align: center; }
+
+/*# sourceMappingURL=main.css.map */

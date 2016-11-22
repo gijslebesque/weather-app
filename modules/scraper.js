@@ -64,7 +64,7 @@ function scrape(day) {
 function storeData(data) {
 	// Get the current date and format it into dd-mm-yyyy
 	let currentDate = dateFormat(new Date())
-
+	console.log (data)
 	// Store data into database
 	db.Weather.create({
 		forecast_date:				currentDate,
