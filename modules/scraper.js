@@ -2,8 +2,15 @@
 const scraperjs = require('scraperjs')
 const db 		= require(__dirname + '/database')
 
+function scrape() {
+	// Set timeout so server can start up first
+	setTimeout( () => {
+		getData()
+	}, 3000 )
+}
+
 // Function to scrape the weather data for today and tommorow
-function scrape(day) {
+function getData() {
 	// Initiate scraper
 	scraperjs.StaticScraper
 		// Set website to be scraped
@@ -64,7 +71,7 @@ function scrape(day) {
 function storeData(data) {
 	// Get the current date and format it into dd-mm-yyyy
 	let currentDate = dateFormat(new Date())
-
+	console.log(data)
 	// Store data into database
 	db.Weather.create({
 		forecast_date:				currentDate,

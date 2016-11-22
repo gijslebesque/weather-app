@@ -20,10 +20,10 @@ app.get('/', (req, res) => {
 	res.render('index')
 })
 
-// Set timeout so server can start up first
-setTimeout( () => {
-	scraper.scrape('tommorow')
-}, 3000 )
+// Run scraper once every 24 hours
+// setInterval( () => {
+	scraper.scrape()
+// }, 8640000) // 100x60x60x26 milliseconds equals 24 hours.
 
 // app listens on localhost 8000
 app.listen(8000, () => {
