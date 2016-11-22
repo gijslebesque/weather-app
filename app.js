@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 			}
 		}
 		// Render index with these result
-		res.render('index', {score: score, result: result})
+		res.render('index', {score: score, result: result[0]})
 	})
 })
 
