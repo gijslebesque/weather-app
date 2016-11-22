@@ -3,7 +3,7 @@
 const db = require(__dirname + '/database')
 
 //declare function that will compare and save data in new table
-let predict = () =>{
+let compare = () =>{
 	//empty object for storing data
 	let resultComparisions = {}
 	//fing scraped data in tabel weather.
@@ -47,14 +47,14 @@ let predict = () =>{
 
 		//insert data into table called prediction
 	}).then( ()=> {
-		db.Prediction.create({
+		db.Compare.create({
 			date: resultComparisions.date,
-			prediction_temp_day: resultComparisions.prediction_temp_day,
-			prediction_temp_night: resultComparisions.prediction_temp_night,
-			prediction_wind_direction: resultComparisions.prediction_wind_direction,
-			prediction_speed: resultComparisions.prediction_speed
+			compare_temp_day: resultComparisions.prediction_temp_day,
+			compare_temp_night: resultComparisions.prediction_temp_night,
+			compare_wind_direction: resultComparisions.prediction_wind_direction,
+			compare_wind_speed: resultComparisions.prediction_speed
 		})
 	})
 }
 //export module
-module.exports = {predict: predict}
+module.exports = {compare: compare}
