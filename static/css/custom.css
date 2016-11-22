@@ -38,9 +38,7 @@ footer.page-footer {
 main {
 	flex: 1 0 auto;
 	color: #ce160a;
-	text-align: center;
-	-webkit-filter: blur(0px);     
-    filter: blur(0px);  
+	text-align: center; 
 }
 
 
